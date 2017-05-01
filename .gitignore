@@ -1,0 +1,7 @@
+# git ignore file
+_Lib*/
+packages*/
+obj*/
+bin*/
+src/.vs/Helpfulcore.Caching/v14/.suo
+*.user
