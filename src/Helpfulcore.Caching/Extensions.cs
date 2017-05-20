@@ -5,21 +5,17 @@
 
     public static class Extensions
     {
-        public static void RemoveAndDispose(this ConcurrentDictionary<string, MemoryCacheEntry> cacheEntries, string key)
+        public static void RemoveCacheEntries(this ConcurrentDictionary<string, MemoryCacheEntry> cacheEntries, string key)
         {
             MemoryCacheEntry entry;
-            if (cacheEntries.TryRemove(key, out entry))
-            {
-                entry?.Dispose();
-                entry = null;
-            }
+            cacheEntries.TryRemove(key, out entry);
         }
 
-        public static void RemoveAndDispose(this ConcurrentDictionary<string, MemoryCacheEntry> cacheEntries, IEnumerable<string> keys)
+        public static void RemoveCacheEntries(this ConcurrentDictionary<string, MemoryCacheEntry> cacheEntries, IEnumerable<string> keys)
         {
             foreach (var key in keys)
             {
-                cacheEntries.RemoveAndDispose(key);
+                cacheEntries.RemoveCacheEntries(key);
             }
         }
     }

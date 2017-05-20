@@ -2,9 +2,8 @@
 
 namespace Helpfulcore.Caching
 {
-	public class MemoryCacheEntry : IDisposable
+	public class MemoryCacheEntry
 	{
-	    private bool isDisposed;
 		internal DateTime ExpiresAt { get; private set; }
 
 		internal object Value { get; private set; }
@@ -19,15 +18,5 @@ namespace Helpfulcore.Caching
 			this.Value = value;
 			this.ExpiresAt = DateTime.UtcNow.Add(expiresIn);
 		}
-
-	    public void Dispose()
-	    {
-	        if (!this.isDisposed)
-	        {
-	            var value = this.Value as IDisposable;
-	            value?.Dispose();
-	            this.isDisposed = true;
-	        }
-	    }
 	}
 }

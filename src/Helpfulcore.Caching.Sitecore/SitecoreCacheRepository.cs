@@ -36,7 +36,7 @@
                 .Where(x => x.Value is SitecoreMemoryCacheEntry)
                 .Select(x => x.Key).ToArray();
 
-            this.Entries.RemoveAndDispose(keys);
+            this.Entries.RemoveCacheEntries(keys);
         }
     }
 }

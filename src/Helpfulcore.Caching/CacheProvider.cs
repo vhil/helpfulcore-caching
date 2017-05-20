@@ -44,7 +44,7 @@
 
 		public virtual bool Remove(string key)
 		{
-		    this.CacheRepository.Entries.RemoveAndDispose(key);
+		    this.CacheRepository.Entries.RemoveCacheEntries(key);
 		    return true;
 		}
 
@@ -72,7 +72,7 @@
 
 		public virtual void FlushAll()
 		{
-            this.CacheRepository.Entries.RemoveAndDispose(this.CacheRepository.Entries.Keys.ToArray());
+            this.CacheRepository.Entries.RemoveCacheEntries(this.CacheRepository.Entries.Keys.ToArray());
 		    this.CacheRepository.Clear();
 		}
 

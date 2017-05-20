@@ -14,7 +14,7 @@
 
         public void Clear()
         {
-            this.Entries.RemoveAndDispose(this.Entries.Keys.ToArray());
+            this.Entries.RemoveCacheEntries(this.Entries.Keys.ToArray());
             this.Entries.Clear();
         }
     }
