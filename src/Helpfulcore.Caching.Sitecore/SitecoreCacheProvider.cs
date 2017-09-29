@@ -34,7 +34,7 @@ namespace Helpfulcore.Caching.Sitecore
         {
             if (!clearOnPublish)
             {
-                return this.BaseProvider.Set<T>(key, value);
+                return this.BaseProvider.Set<T>(key, value, expiresIn);
             }
 
             MemoryCacheEntry entry;
